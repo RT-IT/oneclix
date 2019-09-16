@@ -45,7 +45,9 @@ echo "###########################################"
 echo "#           Removing the database         #"
 echo "###########################################"
 sleep 3s
-DBNAME=$(grep "define( 'DB_NAME'" /home/admin/web/$DOMAIN/public_html/wp-config.php | sed -e "s/define( 'DB_NAME', '//g" | sed -e "s/' );//g")
+DBNAME=$(grep "define( 'DB_NAME'" /home/admin/web/$DOMAIN/public_html/wp-config.php)
+DBNAME=${DBNAME#*, \'}
+DBNAME=${DBNAME/\' );/ }
 
 /usr/local/vesta/bin/v-delete-database admin $DBNAME
 
