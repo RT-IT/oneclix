@@ -26,7 +26,7 @@ if [ -z "$DOMAIN" ]; then
         echo " "
         echo "###########################################"
         echo "# Pass a command flag with the domain name#"
-        echo "# Eg. install.sh -d http://andrewbarber.me#"
+        echo "# Eg. install.sh -d andrewbarber.me       #"
         echo "#   Exiting now... please try again!      #"
         echo "###########################################"
         exit
