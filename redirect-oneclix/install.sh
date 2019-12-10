@@ -13,7 +13,7 @@ sleep 10s
 
 SSL="YES"
 
-while getopts d:s:ms:e option
+while getopts d:s:t option
 do
     case "${option}"
         in
