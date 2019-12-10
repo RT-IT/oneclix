@@ -114,7 +114,7 @@ sleep 3s
 echo "RewriteEngine on" > /home/admin/web/$DOMAIN/public_html/.htaccess
 echo "RewriteCond %{HTTP_HOST} ^$DOMAIN [NC,OR]" >> /home/admin/web/$DOMAIN/public_html/.htaccess
 echo "RewriteCond %{HTTP_HOST} ^www.$DOMAIN [NC]" >> /home/admin/web/$DOMAIN/public_html/.htaccess
-echo "RewriteRule ^(.*)$ https://$DOMAINTO/$1 [L,R=301,NC]" >> /home/admin/web/$DOMAIN/public_html/.htaccess
+echo "RewriteRule ^(.*)$ https://$DOMAINTO/\$1 [L,R=301,NC]" >> /home/admin/web/$DOMAIN/public_html/.htaccess
 
 
 echo " "
