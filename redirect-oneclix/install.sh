@@ -129,3 +129,14 @@ echo "###########################################"
 echo "#          Any issues? Contact:           #"
 echo "#  andrew.barber@racetrackpitstop.co.uk   #"
 echo "###########################################"
+
+subject="New Website: $DOMAIN"
+body="$body               All complete!             "
+body="$body          You should be good to go       "
+body="$body   Go visit your site in all its glory:  "
+body="$body        https://$DOMAIN  "
+
+email=$(grep admin: /etc/passwd | awk -F':' '{print $5}')
+
+echo -e "Subject:${subject}\n${body}" | sendmail -f "${email}" -t "${email}"
+
