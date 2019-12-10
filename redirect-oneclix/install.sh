@@ -32,6 +32,15 @@ if [ -z "$DOMAIN" ]; then
     echo "###########################################"
     exit
 fi
+if [ -z "$DOMAINTO" ]; then
+    echo " "
+    echo "###########################################"
+    echo "# Pass a command flag with the domain name#"
+    echo "Eg. install.sh -d andrewbarber.me -t andrewbarber.com"
+    echo "#   Exiting now... please try again!      #"
+    echo "###########################################"
+    exit
+fi
 if [ "$EUID" -ne 0 ]; then
     echo " "
     echo "###########################################"
