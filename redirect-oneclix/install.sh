@@ -139,4 +139,3 @@ body="$body        https://$DOMAIN  "
 email=$(grep admin: /etc/passwd | awk -F':' '{print $5}')
 
 echo -e "Subject:${subject}\n${body}" | sendmail -f "${email}" -t "${email}"
-
