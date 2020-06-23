@@ -1,11 +1,14 @@
 #!/bin/bash
 
+## Set your vesta panel user below..
+USER="admin"
+
 clear
 echo "###########################################"
 echo "#     Welcome to the wordpress oneclix!   #"
 echo "###########################################"
 echo "#          Any issues? Contact:           #"
-echo "#     helpdesk@racetrackpitstop.co.uk     #"
+echo "#    andrew.barber@rt-itservices.co.uk    #"
 echo "###########################################"
 
 
@@ -45,11 +48,11 @@ echo "###########################################"
 echo "#           Removing the database         #"
 echo "###########################################"
 sleep 3s
-DBNAME=$(grep "define( 'DB_NAME'" /home/admin/web/$DOMAIN/public_html/wp-config.php)
+DBNAME=$(grep "define( 'DB_NAME'" /home/$USER/web/$DOMAIN/public_html/wp-config.php)
 DBNAME=${DBNAME#*, \'}
 DBNAME=${DBNAME/\' );/ }
 
-/usr/local/vesta/bin/v-delete-database admin $DBNAME
+/usr/local/vesta/bin/v-delete-database $USER $DBNAME
 
 
 echo " "
@@ -58,7 +61,7 @@ echo "#        Removing domain and files        #"
 echo "###########################################"
 sleep 3s
 
-/usr/local/vesta/bin/v-delete-domain admin $DOMAIN
+/usr/local/vesta/bin/v-delete-domain $USER $DOMAIN
 
 
 
@@ -67,7 +70,7 @@ echo "###########################################"
 echo "#                  All gone!              #"
 echo "###########################################"
 echo "#          Any issues? Contact:           #"
-echo "#  andrew.barber@racetrackpitstop.co.uk   #"
+echo "#    andrew.barber@rt-itservices.co.uk    #"
 echo "###########################################"
 
 
@@ -75,7 +78,7 @@ subject="Website Removed: $DOMAIN"
 body="$body               Website removed           "
 body="$body          $DOMAIN       "
 
-email=$(grep admin: /etc/passwd | awk -F':' '{print $5}')
+email=$(grep $USER: /etc/passwd | awk -F':' '{print $5}')
 
 echo -e "Subject:${subject}\n${body}" | sendmail -f "${email}" -t "${email}"
 
