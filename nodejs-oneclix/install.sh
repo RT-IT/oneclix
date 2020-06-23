@@ -5,7 +5,7 @@ echo "###########################################"
 echo "#     Welcome to the wordpress oneclix!   #"
 echo "###########################################"
 echo "#          Any issues? Contact:           #"
-echo "#     helpdesk@racetrackpitstop.co.uk     #"
+echo "#    andrew.barber@rt-itservices.co.uk    #"
 echo "###########################################"
 sleep 10s
 
@@ -239,10 +239,11 @@ email=$(grep admin: /etc/passwd | awk -F':' '{print $5}')
 
 echo -e "Subject:${subject}\n${body}" | sendmail -f "${email}" -t "${email}"
 
-sleep 15s
 
         echo " "
 echo "###########################################"
 echo "#               All complete!             #"
 echo "#          You should be good to go       #"
 echo "###########################################"
+
+sleep 15s

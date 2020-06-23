@@ -1,11 +1,14 @@
 #!/bin/bash
 
+## Set your vesta panel user below..
+USER="admin"
+
 clear
 echo "###########################################"
 echo "#     Welcome to the wordpress oneclix!   #"
 echo "###########################################"
 echo "#          Any issues? Contact:           #"
-echo "#     helpdesk@racetrackpitstop.co.uk     #"
+echo "#    andrew.barber@rt-itservices.co.uk    #"
 echo "###########################################"
 
 
@@ -87,7 +90,7 @@ echo "#            Setting up domain            #"
 echo "###########################################"
 sleep 3s
 
-/usr/local/vesta/bin/v-add-domain admin $DOMAIN
+/usr/local/vesta/bin/v-add-domain $USER $DOMAIN
 
 if [ $SSL = "YES" ]; then
     
@@ -101,8 +104,8 @@ if [ $SSL = "YES" ]; then
     tar -xzvf nginx.tar.gz
     rm -f nginx.tar.gz
     
-    /usr/local/vesta/bin/v-add-letsencrypt-domain admin $DOMAIN
-    /usr/local/vesta/bin/v-change-web-domain-proxy-tpl admin $DOMAIN force-https
+    /usr/local/vesta/bin/v-add-letsencrypt-domain $USER $DOMAIN
+    /usr/local/vesta/bin/v-change-web-domain-proxy-tpl $USER $DOMAIN force-https
     
 fi
 
@@ -111,10 +114,10 @@ echo "###########################################"
 echo "#           Setting up redirect           #"
 echo "###########################################"
 sleep 3s
-echo "RewriteEngine on" > /home/admin/web/$DOMAIN/public_html/.htaccess
-echo "RewriteCond %{HTTP_HOST} ^$DOMAIN [NC,OR]" >> /home/admin/web/$DOMAIN/public_html/.htaccess
-echo "RewriteCond %{HTTP_HOST} ^www.$DOMAIN [NC]" >> /home/admin/web/$DOMAIN/public_html/.htaccess
-echo "RewriteRule ^(.*)$ https://$DOMAINTO/\$1 [L,R=301,NC]" >> /home/admin/web/$DOMAIN/public_html/.htaccess
+echo "RewriteEngine on" > /home/$USER/web/$DOMAIN/public_html/.htaccess
+echo "RewriteCond %{HTTP_HOST} ^$DOMAIN [NC,OR]" >> /home/$USER/web/$DOMAIN/public_html/.htaccess
+echo "RewriteCond %{HTTP_HOST} ^www.$DOMAIN [NC]" >> /home/$USER/web/$DOMAIN/public_html/.htaccess
+echo "RewriteRule ^(.*)$ https://$DOMAINTO/\$1 [L,R=301,NC]" >> /home/$USER/web/$DOMAIN/public_html/.htaccess
 
 
 echo " "
@@ -127,7 +130,7 @@ echo "#   Go visit your site in all its glory:  #"
 echo "        https://$DOMAIN  "
 echo "###########################################"
 echo "#          Any issues? Contact:           #"
-echo "#  andrew.barber@racetrackpitstop.co.uk   #"
+echo "#    andrew.barber@rt-itservices.co.uk    #"
 echo "###########################################"
 
 subject="New Website: $DOMAIN"
