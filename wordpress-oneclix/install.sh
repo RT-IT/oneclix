@@ -181,7 +181,7 @@ sed -i -e 's/database_name_here/'$USER'_'$DBNAME'/g' /home/$USER/web/$DOMAIN/pub
 sed -i -e 's/username_here/'$USER'_'$DBUSER'/g' /home/$USER/web/$DOMAIN/public_html/wp-config.php
 sed -i -e 's/password_here/'$DBPASS'/g' /home/$USER/web/$DOMAIN/public_html/wp-config.php
 
-sed -i -e "s/require_once( ABSPATH . 'wp-settings.php' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
+sed -i -e "s/require_once ABSPATH . 'wp-settings.php';/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
 sed -i -e "s/define( 'AUTH_KEY',         'put your unique phrase here' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
 sed -i -e "s/define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
 sed -i -e "s/define( 'LOGGED_IN_KEY',    'put your unique phrase here' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
@@ -190,7 +190,6 @@ sed -i -e "s/define( 'AUTH_SALT',        'put your unique phrase here' );/ /g" /
 sed -i -e "s/define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
 sed -i -e "s/define( 'LOGGED_IN_SALT',   'put your unique phrase here' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
 sed -i -e "s/define( 'NONCE_SALT',       'put your unique phrase here' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
-sed -i -e "s/require_once( ABSPATH . 'wp-settings.php' );/ /g" /home/$USER/web/$DOMAIN/public_html/wp-config.php
 
 
 curl -s https://api.wordpress.org/secret-key/1.1/salt/ >>  /home/$USER/web/$DOMAIN/public_html/wp-config.php
