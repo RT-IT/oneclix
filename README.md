@@ -1,4 +1,4 @@
-#OneClix 🖱️
+# OneClix 🖱️
 
 A number of scripts for quick setup of various systems on [Vesta Control Panel](https://vestacp.com/). Including a standard(ish) [Wordpress](https://wordpress.org/) installer, a simple domain redirector and a way to host [NodeJS](https://nodejs.org/en/) applications too.
 
