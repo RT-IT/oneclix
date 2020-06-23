@@ -37,3 +37,7 @@ sudo ./install.sh -d test.com -t new.com
 
 Make sure `test.com`'s DNS is pointing to your server as the script will check. It will check for both `test.com` and `www.test.com` so you might want to add a CName redirect too.
 SSL via [Lets Encrypt](https://letsencrypt.org/) is enabled by default, you can change this by supplying `-s NO` flag to the install script.
+
+## NodeJS
+
+TODO: Add details about nodejs-oneclix
